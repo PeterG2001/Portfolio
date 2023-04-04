@@ -1,3 +1,13 @@
+""""
+
+The code defines two classes: BasicAccount and PremiumAccount, which are used to simulate bank accounts. 
+The BasicAccount class has methods for depositing and withdrawing money, getting the available balance, printing the balance, getting the account holder's name and account number, issuing a new card, and closing the account. 
+The PremiumAccount class is a subclass of BasicAccount and has additional functionality for setting an overdraft limit, getting the available balance (including the overdraft limit), and printing the balance (which shows the overdraft limit if it's being used).
+The code creates an instance of the BasicAccount class named User1, with an opening balance of £400.00 and the account holder's name "Alex". 
+The User1 account then withdraws £50.00 using the withdraw() method, which updates the balance and prints a message to indicate the new balance.
+
+""""
+
 import random
 import datetime
 random.seed(5)
