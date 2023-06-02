@@ -1,0 +1,123 @@
+<!-- This HTML code creates a web page that allows a user to interact with a RESTful API. The user can select a resource, a request method, and a request body. The code then sends the request to the server and displays the response. -->
+<!DOCTYPE html>
+<html lang="en-GB">
+   <head>
+      <meta charset="utf-8">
+      <title>RESTFUL WEB INTERFACE</title>
+      <!-- Here is the title of the web page. -->
+      <link rel="stylesheet" href="restful.css">
+   </head>
+   <body>
+      <header>
+         <h1>Basketball League Web Interface</h1>
+         <!-- Here is the header of the web page. --> 
+      </header>
+      <div id="content">
+         <h3>HTTP Method</h3>
+         <!-- Here is a heading that indicates the HTTP method. -->
+         <select name="method" id="method" onchange="RequestMethod(this.value); showRequestBody(); populatelistopt();"> new occ
+            <option value="None">Select A Method</option>
+            <option value="GET">GET</option>
+            <option value="POST">POST</option>
+            <option value="PUT">PUT</option>
+            <option value="DELETE">DELETE</option>
+         </select>
+         <!-- Here is a dropdown menu that allows the user to select an HTTP method. -->
+         <br>
+         <div id="resourceField">
+            <h3>Resource</h3>
+            <!-- Here is a heading that indicates the resource. -->
+            <input type="text" name="resource" id="resource" list="resources" size="80" onchange="settingResourceURL(this.value)" placeholder="Enter Resource">
+            <datalist id="resources">
+               <option value="players">Players</option>
+               <option value="teams">Teams</option>
+            </datalist>
+            <br>
+         </div>
+         <!-- Here is a text input field that allows the user to enter a resource. -->
+         <div id="requestBody">
+            <h3> Body</h3>
+            <!-- Here is a heading that indicates the request body. -->
+            <textarea name="requestBody" id="requestBody" cols="80" rows="5" onchange="setRequestBodyValue(this.value)" placeholder="Enter the request in JSON format"></textarea>
+            <br>
+         </div>
+         <!-- Here is a text area that allows the user to enter a request body in JSON format. -->
+         <button type="submit" onclick="forwardRequest()">Send Request</button> 
+         <!-- Here is a button that allows the user to send a request. -->
+         <div id="httpMethod"></div>
+         <div id="httpResource"></div>
+         <div id="httpRequestBody"></div>
+         <div id="HTTPResponse">
+            <div id="statusCode"></div>
+            <div id="responseBody"></div>
+         </div>
+         <!-- These are div elements that will be used to display the HTTP method, resource, request body, and HTTP response. -->
+         <button onclick="clearingResponse()">Field Clearance</button>
+         <!-- Here is a button that allows the user to clear the fields. -->
+      </div>
+      
+      <div id="resourceList" class="toggle-data">
+         <h3>API Manual</h3>
+
+         <ul class="my-list">
+            <li>Select an HTTP method from the dropdown menu.</li>
+            <li>Enter the resource in the text input field.</li>
+            <li>Enter the request body in JSON format in the text area (optional).</li>
+            <li>Click the "Send Request" button to submit the request.</li>
+            <li>View the HTTP method, resource, request body, and HTTP response in the designated div elements.</li>
+            <li>Click the "Field Clearance" button to clear the fields.</li>
+            <li>The API manual is displayed in the "resourceList" div, providing instructions on how to retrieve all players, retrieve all teams, retrieve a player by team ID, create a new player, and delete a player.</li>
+          </ul>          
+          
+         <!-- Here is a heading that indicates the API manual. -->
+         <ul>
+            <li>GET all players: <br> <code>"https://student.csc.liv.ac.uk/~sgpgezah/v1/Rest.php?resource=players"</code></li>
+            <!-- Here is a list item that indicates how to retrieve all players. -->
+            <br>
+            <li>GET all teams: <br> <code>"https://student.csc.liv.ac.uk/~sgpgezah/v1/Rest.php?resource=players"</code></li>
+            <!-- Here is a list item that indicates how to retrieve all teams. -->
+            <br>
+            <li>GET a player by team_id: <br> <code>"https://student.csc.liv.ac.uk/~sgpgezah/v1/Rest.php?resource=players&team_id=<team_id>&player_id=<player_id>"</code></li>
+            <!-- Here is a list item that indicates how to retrieve a player by team ID. -->
+            <br>
+            <li>POST a new player: <br> <code>"https://student.csc.liv.ac.uk/~sgpgezah/v1/Rest.php?resource=add_player"</code></li>
+            <!-- Here is a list item that indicates how to create a new player. -->
+            <code>
+                {
+                    "surname": "James",
+                    "given_names": "LeBron",
+                    "nationality": "American",
+                    "date_of_birth": "1984-12-30",
+                    "team_id": 1
+                  }
+            </code>
+            <br>
+            <br>
+            <li>DELETE player : <br><code>"https://student.csc.liv.ac.uk/~sgpgezah/v1/Rest.php?resource=delete_player"</code></li>
+             <!-- Here is a list item that indicates how to delete a new player. -->
+            <code>
+               {
+                  "team_id": "<team_id>",
+                  "id": "<id>"
+                }
+                
+            </code>
+            <br>
+            <li>UPDATE a player by team_id: <br> <code>"https://student.csc.liv.ac.uk/~sgpgezah/v1/Rest.php?resource=update-player&team_id=<team_id>&id=<player_id>"</code></li>
+            <!-- Here is a list item that indicates how to update a players data. -->
+            <code>
+               {
+                   "id": 1,
+                   "surname": "James",
+                   "given_names": "LeBron",
+                   "nationality": "American",
+                   "date_of_birth": "1984-12-30",
+                   "team_id": 1
+                 }
+           </code>
+            <br>
+         </ul>
+      </div>
+      <script src="interface.js"></script>
+   </body>
+</html>

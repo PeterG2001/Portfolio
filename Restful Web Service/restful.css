@@ -1,0 +1,44 @@
+body {
+    font-family: Arial, sans-serif;
+  }
+  
+  header {
+    background-color: rgb(51, 51, 51);
+    color: rgb(235, 110, 27);
+    text-align: center;
+    padding: 10px;
+  }
+  
+  #content {
+    margin: 20px;
+  }
+  
+  h3 {
+    margin-top: 20px;
+  }
+  
+  button {
+    margin-top: 20px;
+  }
+  
+  .toggle-content {
+    display: none;
+  }
+  
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  li {
+    margin-top: 10px;
+  }
+  
+  .my-list {
+    list-style: square;
+    font-weight: bold;
+    color: black;
+    margin-left: 20px;
+  }
+  
