@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <title>Dice Game</title>
+      <link rel="stylesheet" href="cartoonishcss.css">
+   </head>
+   <body>
+      <h1>Dice Game</h1>
+      
+      <form>
+         <label for="num-dice-input">Number of dice (3-6): </label>
+         <input type="number" id="num-dice-input" name="num-dice-input" min="3" max="6" required>
+         <span id="num-dice-error" style="color: red;"></span>
+         <br><br>
+         <button type="submit">Play</button>
+      </form>
+      <br>
+      <div id="round-result"></div>
+      <br>
+      <div id="balance-display"></div>
+      <br>
+      <div id="end-stage" style="display: none;">
+         <p>Number of rounds played: <span id="num-rounds-played"></span></p>
+         <p>Final balance: <span id="final-balance"></span></p>
+         <p>Average points per round: <span id="avg-points-per-round"></span></p>
+      </div>
+      <button id="play-again-button" style="display: none;">Play Again</button>
+      <button id="end-game-button" style="display: none;">End Game</button>
+      <script src="game.js"></script>
+
+
+   </body>
+</html>
